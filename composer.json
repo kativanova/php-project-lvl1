@@ -1,0 +1,16 @@
+{
+    "name": "hexlet/code",
+    "description": "This project is created for purposes of learnin PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ekaterina Ivanova",
+            "email": "eivanova@cs-cart.com"
+        }
+    ],
+    "bin": [
+        "bin/brain-games"
+    ],
+    "require": {}
+}
