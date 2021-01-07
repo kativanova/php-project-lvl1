@@ -1,4 +1,4 @@
-name: Linter
+name: Lint
 
 on: push
 jobs:
@@ -16,6 +16,9 @@ jobs:
         with:
           # Specify the PHP version
           php-version: '7.4'
+      - name: Install
+        # Install project
+        run: make install
       - name: Run linter
         # Run Linter
         run: make lint
