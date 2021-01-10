@@ -1,5 +1,6 @@
-#!/usr/bin/env php
 <?php
+
+namespace Brain\Games\Engine;
 
 // Путь который будет использован при глобальной установке пакета
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -12,6 +13,10 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Even\startGame;
+define('NUBER_OF_ATTEMPTS', 3);
 
-startGame();
+function startGame(){
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+}
