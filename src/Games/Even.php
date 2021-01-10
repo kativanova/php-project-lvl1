@@ -17,9 +17,6 @@ else {
 use function cli\line;
 use function cli\prompt;
 
-define("MIN_NUMBER", 0);
-define("MAX_NUMBER", 100);
-
 function isEven($number)
 {
     return $number % 2 === 0;
