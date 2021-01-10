@@ -9,8 +9,7 @@ $autoloadPath2 = __DIR__ . '/../../vendor/autoload.php';
 
 if (file_exists($autoloadPath1)) {
     require_once $autoloadPath1;
-}
-else {
+} else {
     require_once $autoloadPath2;
 }
 
@@ -30,9 +29,9 @@ function startGame(string $game)
     line("Hello, %s!", $name);
 
     if ($game === 'Even') {
-        Even\describieRules();
+        $rules = Even\getRules();
     } elseif ($game === 'Calc') {
-        Calc\describieRules();
+        $rules = Calc\getRules();
     }
 
     $isAnsweredRight = true;
@@ -48,11 +47,10 @@ function startGame(string $game)
         line('Question: %s', $question);
         $responce = prompt('Your answer');
 
-        if ((int)$responce === $correctAnswer) {
+        if ($responce == $correctAnswer) {
             line("Correct!");
             $numberOfAttempts++;
-        }
-        else {
+        } else {
             line("\"%s\" is wrong answer ;(. Correct answer was \"%s\"", $responce, $correctAnswer);
             $isAnsweredRight = false;
         }
@@ -61,6 +59,6 @@ function startGame(string $game)
     if ($isAnsweredRight) {
         line("Congratulations, %s", $name);
     } else {
-        line("Let's try again, %s" , $name);
+        line("Let's try again, %s", $name);
     }
 }
