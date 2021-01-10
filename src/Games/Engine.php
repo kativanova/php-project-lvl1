@@ -15,37 +15,52 @@ else {
 }
 
 use Brain\Games\Even;
+use Brain\Games\Calc;
 use function cli\line;
 use function cli\prompt;
 
 define('MAX_NUMBER_OF_ATTEMPTS', 3);
+define("MIN_NUMBER", 0);
+define("MAX_NUMBER", 100);
 
-function startGame(string $game){
+function startGame(string $game)
+{
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    Even\describieRules();
-    
+    if ($game === 'Even') {
+        Even\describieRules();
+    } elseif ($game === 'Calc') {
+        Calc\describieRules();
+    }
+
     $isAnsweredRight = true;
     $numberOfAttempts = 0;
 
     while ($isAnsweredRight && $numberOfAttempts < MAX_NUMBER_OF_ATTEMPTS) {
-        [$question, $correctAnswer] = Even\getQuestion();
-        
-        line('Question: %d', $question);
+        if ($game === 'Even') {
+            [$question, $correctAnswer] = Even\getQuestion();
+        } elseif ($game === 'Calc') {
+            [$question, $correctAnswer] = Calc\getQuestion();
+        }
+
+        line('Question: %s', $question);
         $responce = prompt('Your answer');
 
-        if ($responce === $correctAnswer) {
+        if ((int)$responce === $correctAnswer) {
             line("Correct!");
             $numberOfAttempts++;
-        } else {
+        }
+        else {
             line("\"%s\" is wrong answer ;(. Correct answer was \"%s\"", $responce, $correctAnswer);
-            $isAnsweredRight = false;            
+            $isAnsweredRight = false;
         }
     }
 
     if ($isAnsweredRight) {
         line("Congratulations, %s", $name);
+    } else {
+        line("Let's try again, %s" , $name);
     }
 }
