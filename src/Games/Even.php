@@ -20,54 +20,19 @@ use function cli\prompt;
 define("MIN_NUMBER", 0);
 define("MAX_NUMBER", 100);
 
-function startGame()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-
-    $isAnsweredRight = true;
-    $countAttempts = 3;
-
-    while ($isAnsweredRight && $countAttempts > 0) {
-        $number = getRandoNumber();
-
-        line('Question: %d', $number);
-
-        $responce = prompt('Your answer: ');
-        if (isCorrectAnswer($number, $responce)) {
-            line("Correct!");
-            $countAttempts--;
-        }
-        else {
-            line("\"%s\" is wrong answer ;(. Correct answer was \"%s\"", $responce, getCorrectAnswer($number));
-            $isAnsweredRight = false;
-        }
-    }
-
-    if ($isAnsweredRight) {
-        line("Congratulations, %s", $name);
-    }
-}
-
 function isEven($number)
 {
     return $number % 2 === 0;
 }
 
-function isCorrectAnswer($number, $responce)
+function getQuestion(): array
 {
-    return isEven($number) && $responce === 'yes'
-        || !isEven($number) && $responce === 'no';
+    $number = rand(MIN_NUMBER, MAX_NUMBER);
+    $response = isEven($number) ? 'yes' : 'no';
+    return [$number, $response];
 }
 
-function getCorrectAnswer($number)
+function describieRules()
 {
-    return isEven($number) ? 'yes' : 'no';
-}
-
-function getRandoNumber()
-{
-    return rand(MIN_NUMBER, MAX_NUMBER);
+    line('Answer "yes" if the number is even, otherwise answer "no".');
 }
