@@ -33,7 +33,8 @@ function startGame(string $game)
     } elseif ($game === 'Calc') {
         $rules = Calc\getRules();
     }
-
+    line($rules);
+    
     $isAnsweredRight = true;
     $numberOfAttempts = 0;
 
