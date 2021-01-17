@@ -15,6 +15,8 @@ if (file_exists($autoloadPath1)) {
 
 use Brain\Games\Even;
 use Brain\Games\Calc;
+use Brain\Games\GCD;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -32,9 +34,11 @@ function startGame(string $game)
         $rules = Even\getRules();
     } elseif ($game === 'Calc') {
         $rules = Calc\getRules();
+    } elseif ($game === 'GCD') {
+        $rules = GCD\getRules();
     }
     line($rules);
-    
+
     $isAnsweredRight = true;
     $numberOfAttempts = 0;
 
@@ -43,6 +47,8 @@ function startGame(string $game)
             [$question, $correctAnswer] = Even\getQuestion();
         } elseif ($game === 'Calc') {
             [$question, $correctAnswer] = Calc\getQuestion();
+        } elseif ($game === 'GCD') {
+            [$question, $correctAnswer] = GCD\getQuestion();
         }
 
         line('Question: %s', $question);
