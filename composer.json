@@ -21,7 +21,8 @@
             "src/Games/Even.php",
             "src/Games/Engine.php",
             "src/Games/Calc.php",
-            "src/Games/GCD.php"
+            "src/Games/GCD.php",
+            "src/Games/Progression.php"
         ]
     },
     "scripts": {

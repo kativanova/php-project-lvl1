@@ -16,6 +16,7 @@ if (file_exists($autoloadPath1)) {
 use Brain\Games\Even;
 use Brain\Games\Calc;
 use Brain\Games\GCD;
+use Brain\Games\Progression;
 
 use function cli\line;
 use function cli\prompt;
@@ -23,6 +24,7 @@ use function cli\prompt;
 define('MAX_NUMBER_OF_ATTEMPTS', 3);
 define("MIN_NUMBER", 0);
 define("MAX_NUMBER", 100);
+define("LENGTH_OF_PROGRESSION", 10);
 
 function startGame(string $game)
 {
@@ -36,6 +38,8 @@ function startGame(string $game)
         $rules = Calc\getRules();
     } elseif ($game === 'GCD') {
         $rules = GCD\getRules();
+    } elseif ($game = 'Progression') {
+        $rules = Progression\getRules();
     }
     line($rules);
 
@@ -49,6 +53,8 @@ function startGame(string $game)
             [$question, $correctAnswer] = Calc\getQuestion();
         } elseif ($game === 'GCD') {
             [$question, $correctAnswer] = GCD\getQuestion();
+        } elseif ($game === 'Progression') {
+            [$question, $correctAnswer] = Progression\getQuestion();
         }
 
         line('Question: %s', $question);
