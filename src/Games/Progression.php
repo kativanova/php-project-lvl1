@@ -8,7 +8,7 @@ function getQuestion(): array
     $d = rand(0, 10);
     $progression = [];
 
-    $missingIndex = rand(0, 10);
+    $missingIndex = rand(0, 9);
 
     for ($i = 0; $i < LENGTH_OF_PROGRESSION; $i++) {
         $progression[] = $a1 + $i * $d;
