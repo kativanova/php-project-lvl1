@@ -5,6 +5,7 @@
 ### Linter status
 [![Linter](https://github.com/kativanova/php-project-lvl1/workflows/Linter/badge.svg)](https://github.com/kativanova/php-project-lvl1/workflows/Linter/badge.svg)
 
-Example of Brain Even: https://asciinema.org/a/4hfBrSt6mI7UdDxorXzHRhr7d
-Example of Brain Calc: https://asciinema.org/a/PS9QTTe0j2oCb9cOH5tvOJpdk
-Exampe of Brain GCD: https://asciinema.org/a/cXTMuYeozvifJdfBacmaDyX4Y
+### Example of Brain Even: https://asciinema.org/a/4hfBrSt6mI7UdDxorXzHRhr7d
+### Example of Brain Calc: https://asciinema.org/a/PS9QTTe0j2oCb9cOH5tvOJpdk
+### Exampe of Brain GCD: https://asciinema.org/a/cXTMuYeozvifJdfBacmaDyX4Y
+### Example of Brain Progression: https://asciinema.org/a/2ipx1oSXXrev6MgbTkT1i9e6y
