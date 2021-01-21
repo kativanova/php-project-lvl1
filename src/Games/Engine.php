@@ -17,6 +17,7 @@ use Brain\Games\Even;
 use Brain\Games\Calc;
 use Brain\Games\GCD;
 use Brain\Games\Progression;
+use Brain\Games\Prime;
 
 use function cli\line;
 use function cli\prompt;
@@ -38,8 +39,10 @@ function startGame(string $game)
         $rules = Calc\getRules();
     } elseif ($game === 'GCD') {
         $rules = GCD\getRules();
-    } elseif ($game = 'Progression') {
+    } elseif ($game === 'Progression') {
         $rules = Progression\getRules();
+    } elseif ($game === 'Prime') {
+        $rules = Prime\getRules();
     }
     line($rules);
 
@@ -55,6 +58,8 @@ function startGame(string $game)
             [$question, $correctAnswer] = GCD\getQuestion();
         } elseif ($game === 'Progression') {
             [$question, $correctAnswer] = Progression\getQuestion();
+        } elseif ($game === 'Prime') {
+            [$question, $correctAnswer] = Prime\getQuestion();
         }
 
         line('Question: %s', $question);
