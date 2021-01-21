@@ -3,9 +3,9 @@
 namespace Brain\Games\Engine;
 
 // Путь который будет использован при глобальной установке пакета
-$autoloadPath1 = __DIR__ . '/../../../../autoload.php';
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
 // Путь для локальной работы с проектом
-$autoloadPath2 = __DIR__ . '/../../vendor/autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
 if (file_exists($autoloadPath1)) {
     require_once $autoloadPath1;

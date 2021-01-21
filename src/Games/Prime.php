@@ -20,6 +20,6 @@ function isPrime(int $number)
         if ($number % $i === 0) {
             return false;
         }
-    } 
+    }
     return true;
 }

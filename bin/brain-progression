@@ -13,8 +13,5 @@ if (file_exists($autoloadPath1)) {
 }
 
 use function Brain\Games\Engine\startGame;
-use function Brain\Games\Progression\getProgression;
-use function Brain\Games\Progression\getQuestion;
 
 startGame('Progression');
-//var_dump(getQuestion());
