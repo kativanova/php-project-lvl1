@@ -12,6 +12,7 @@ function startGame(): void
         $number2 = rand(MIN_NUMBER, MAX_NUMBER);
 
         $operation = getRandomOperation();
+        $response = '';
         if ($operation === '+') {
             $response = $number1 + $number2;
         } elseif ($operation === '-') {

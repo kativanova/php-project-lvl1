@@ -15,7 +15,7 @@ function startGame(): void
     run('Answer "yes" if the number is even, otherwise answer "no".', $questionsAndAnswers);
 }
 
-function isEven($number): bool
+function isEven(int $number): bool
 {
     return $number % 2 === 0;
 }
