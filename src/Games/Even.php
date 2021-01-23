@@ -4,8 +4,6 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\run;
 
-define('NUMBER_OF_ATTEMPTS', 3);
-
 function startGame()
 {
     $questionsAndAnswers = [];

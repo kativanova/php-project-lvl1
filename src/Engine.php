@@ -2,6 +2,8 @@
 
 namespace Brain\Games\Engine;
 
+define('NUMBER_OF_ATTEMPTS', 3);
+
 use function cli\line;
 use function cli\prompt;
 
