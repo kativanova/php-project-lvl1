@@ -3,6 +3,8 @@
 namespace Brain\Games\Engine;
 
 define('NUMBER_OF_ATTEMPTS', 3);
+define('MIN_NUMBER', 0);
+define('MAX_NUMBER', 100);
 
 use function cli\line;
 use function cli\prompt;

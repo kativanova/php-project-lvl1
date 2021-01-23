@@ -2,32 +2,44 @@
 
 namespace Brain\Games\Progression;
 
-function getQuestion(): array
+use function Brain\Games\Engine\run;
+
+define('LENGTH_OF_PROGRESSION', 10);
+
+function startGame()
 {
-    $a1 = rand(MIN_NUMBER, MAX_NUMBER);
-    $d = rand(0, 10);
-    $progression = [];
-
-    $missingIndex = rand(0, 9);
-
-    for ($i = 0; $i < LENGTH_OF_PROGRESSION; $i++) {
-        $progression[] = $a1 + $i * $d;
-    }
-
-    $progressionString = "";
-    for ($i = 0; $i < LENGTH_OF_PROGRESSION; $i++) {
-        if ($i != $missingIndex) {
-            $progressionString .= $progression[$i];
-        } else {
-            $progressionString .= "..";
+    $questionsAndAnswers = [];
+    for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
+        $progression = getProgression();
+        $missingIndex = rand(0, 9);
+        $progressionString = "";
+        for ($j = 0; $j < LENGTH_OF_PROGRESSION; $j++) {
+            if ($j != $missingIndex) {
+                $progressionString .= $progression[$j];
+            } else {
+                $progressionString .= "..";
+            }
+            $progressionString .= " ";
         }
-        $progressionString .= " ";
-    }
 
-    return [$progressionString, $progression[$missingIndex]];
+        $questionsAndAnswers[] = [$progressionString, $progression[$missingIndex]];
+    }
+    run('What number is missing in the progression?', $questionsAndAnswers);
 }
 
 function getRules()
 {
     return 'What number is missing in the progression?';
+}
+
+function getProgression(): array
+{
+    $a1 = rand(MIN_NUMBER, MAX_NUMBER);
+    $d = rand(0, 10);
+    $progression = [];
+
+    for ($i = 0; $i < LENGTH_OF_PROGRESSION; $i++) {
+        $progression[] = $a1 + $i * $d;
+    }
+    return $progression;
 }

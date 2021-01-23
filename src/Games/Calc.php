@@ -4,9 +4,6 @@ namespace Brain\Games\Calc;
 
 use function Brain\Games\Engine\run;
 
-define('MIN_NUMBER', 0);
-define('MAX_NUMBER', 100);
-
 function startGame()
 {
     $questionsAndAnswers = [];
