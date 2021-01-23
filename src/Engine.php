@@ -17,24 +17,17 @@ function run(string $rules, array $questionsAndAnswers)
 
     line($rules);
 
-    $isAnsweredRight = true;
 
     foreach ($questionsAndAnswers as $item) {
         [$question, $correctAnswer] = $item;
         line('Question: %s', $question);
         $responce = prompt('Your answer');
-        if ($responce == $correctAnswer) {
-            line("Correct!");
-        } else {
+        if ($responce != $correctAnswer) {
             line("\"%s\" is wrong answer ;(. Correct answer was \"%s\"", $responce, $correctAnswer);
-            $isAnsweredRight = false;
-            break;
+            line("Let's try again, %s!", $name);
+            return;
         }
     }
 
-    if ($isAnsweredRight) {
-        line("Congratulations, %s", $name);
-    } else {
-        line("Let's try again, %s", $name);
-    }
+    line("Congratulations, %s!", $name);
 }
