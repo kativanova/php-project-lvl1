@@ -2,16 +2,17 @@
 
 namespace Brain\Games\GCD;
 
-function getQuestion(): array
-{
-    $number1 = rand(MIN_NUMBER, MAX_NUMBER);
-    $number2 = rand(MIN_NUMBER, MAX_NUMBER);
-    return ["{$number1} {$number2}", getGCD($number1, $number2)];
-}
+use function Brain\Games\Engine\run;
 
-function getRules()
+function startGame()
 {
-    return 'Find the greatest common divisor of given numbers.';
+    $questionsAndAnswers = [];
+    for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
+        $number1 = rand(MIN_NUMBER, MAX_NUMBER);
+        $number2 = rand(MIN_NUMBER, MAX_NUMBER);
+        $questionsAndAnswers[] = ["{$number1} {$number2}", getGCD($number1, $number2)];
+    }
+    run('Find the greatest common divisor of given numbers.', $questionsAndAnswers);
 }
 
 function getGCD(int $num1, int $num2)
