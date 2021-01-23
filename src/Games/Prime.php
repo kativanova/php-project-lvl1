@@ -4,7 +4,7 @@ namespace Brain\Games\Prime;
 
 use function Brain\Games\Engine\run;
 
-function startGame()
+function startGame(): void
 {
     $questionsAndAnswers = [];
     for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
@@ -15,7 +15,7 @@ function startGame()
     run('Answer "yes" if given number is prime. Otherwise answer "no".', $questionsAndAnswers);
 }
 
-function isPrime(int $number)
+function isPrime(int $number): bool
 {
     for ($i = 2; $i <= $number / 2; $i++) {
         if ($number % $i === 0) {

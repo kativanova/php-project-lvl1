@@ -4,7 +4,7 @@ namespace Brain\Games\GCD;
 
 use function Brain\Games\Engine\run;
 
-function startGame()
+function startGame(): void
 {
     $questionsAndAnswers = [];
     for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
@@ -15,7 +15,7 @@ function startGame()
     run('Find the greatest common divisor of given numbers.', $questionsAndAnswers);
 }
 
-function getGCD(int $num1, int $num2)
+function getGCD(int $num1, int $num2): int
 {
     if ($num1 == 0 || $num2 == 0) {
         return 1;

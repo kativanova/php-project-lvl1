@@ -6,7 +6,7 @@ use function Brain\Games\Engine\run;
 
 define('LENGTH_OF_PROGRESSION', 10);
 
-function startGame()
+function startGame(): void
 {
     $questionsAndAnswers = [];
     for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {

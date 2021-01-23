@@ -4,7 +4,7 @@ namespace Brain\Games\Calc;
 
 use function Brain\Games\Engine\run;
 
-function startGame()
+function startGame(): void
 {
     $questionsAndAnswers = [];
     for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {

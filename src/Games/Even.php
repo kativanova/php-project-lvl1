@@ -4,7 +4,7 @@ namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\run;
 
-function startGame()
+function startGame(): void
 {
     $questionsAndAnswers = [];
     for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
@@ -15,7 +15,7 @@ function startGame()
     run('Answer "yes" if the number is even, otherwise answer "no".', $questionsAndAnswers);
 }
 
-function isEven($number)
+function isEven($number): bool
 {
     return $number % 2 === 0;
 }
