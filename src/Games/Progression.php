@@ -27,11 +27,6 @@ function startGame()
     run('What number is missing in the progression?', $questionsAndAnswers);
 }
 
-function getRules()
-{
-    return 'What number is missing in the progression?';
-}
-
 function getProgression(): array
 {
     $a1 = rand(MIN_NUMBER, MAX_NUMBER);
