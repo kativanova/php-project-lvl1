@@ -2,23 +2,28 @@
 
 namespace Brain\Games\Calc;
 
-function getQuestion(): array
-{
-    $number1 = rand(MIN_NUMBER, MAX_NUMBER);
-    $number2 = rand(MIN_NUMBER, MAX_NUMBER);
+use function Brain\Games\Engine\run;
 
-    $operation = getRandomOperation();
-    if ($operation === '+') {
-        $response = $number1 + $number2;
-    } elseif ($operation === '-') {
-        $response = $number1 - $number2;
+define('MIN_NUMBER', 0);
+define('MAX_NUMBER', 100);
+
+function startGame()
+{
+    $questionsAndAnswers = [];
+    for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
+        $number1 = rand(MIN_NUMBER, MAX_NUMBER);
+        $number2 = rand(MIN_NUMBER, MAX_NUMBER);
+
+        $operation = getRandomOperation();
+        if ($operation === '+') {
+            $response = $number1 + $number2;
+        } elseif ($operation === '-') {
+            $response = $number1 - $number2;
+        }
+        $questionsAndAnswers[] = ["{$number1} {$operation} {$number2}", $response];
     }
-    return ["{$number1} {$operation} {$number2}", $response];
-}
 
-function getRules()
-{
-    return 'What is the result of the expression?';
+    run('What is the result of the expression?', $questionsAndAnswers);
 }
 
 function getRandomOperation(): string
