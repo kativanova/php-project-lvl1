@@ -2,16 +2,17 @@
 
 namespace Brain\Games\Prime;
 
-function getQuestion(): array
-{
-    $number = rand(MIN_NUMBER, MAX_NUMBER);
-    $response = isPrime($number) ? 'yes' : 'no';
-    return [$number, $response];
-}
+use function Brain\Games\Engine\run;
 
-function getRules()
+function startGame()
 {
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $questionsAndAnswers = [];
+    for ($i = 0; $i < NUMBER_OF_ATTEMPTS; $i++) {
+        $number = rand(MIN_NUMBER, MAX_NUMBER);
+        $response = isPrime($number) ? 'yes' : 'no';
+        $questionsAndAnswers[] = [$number, $response];
+    }
+    run('Answer "yes" if given number is prime. Otherwise answer "no".', $questionsAndAnswers);
 }
 
 function isPrime(int $number)
